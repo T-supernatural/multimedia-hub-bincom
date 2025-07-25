@@ -8,7 +8,8 @@ function App() {
     fetch("http://localhost:1000/api/media/")
       .then((res) => res.json())
       .then((data) => {
-        setMediaItems(data);
+        console.log("API response:", data);
+        setMediaItems(data.results || []);
         setLoading(false);
       })
       .catch((err) => console.error("API error:", err));
@@ -22,47 +23,48 @@ function App() {
         <p>Loading...</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {mediaItems.map((item) => (
-            <div key={item.id} className="bg-white shadow-lg rounded p-4">
-              <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
-              <p className="text-sm text-gray-500 mb-1">
-                {item.media_type.toUpperCase()}
-              </p>
-              <p className="text-gray-700 line-clamp-3">{item.description}</p>
+          {Array.isArray(mediaItems) &&
+            mediaItems.map((item) => (
+              <div key={item.id} className="bg-white shadow-lg rounded p-4">
+                <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
+                <p className="text-sm text-gray-500 mb-1">
+                  {item.media_type.toUpperCase()}
+                </p>
+                <p className="text-gray-700 line-clamp-3">{item.description}</p>
 
-              {item.media_type === "photo" && item.file && (
-                <img
-                  src={`http://localhost:1000${item.file}`}
-                  alt={item.title}
-                  className="mt-2 rounded"
-                />
-              )}
-
-              {item.media_type === "audio" && item.file && (
-                <audio controls className="mt-2 w-full">
-                  <source
+                {item.media_type === "photo" && item.file && (
+                  <img
                     src={`http://localhost:1000${item.file}`}
-                    type="audio/mpeg"
+                    alt={item.title}
+                    className="mt-2 rounded"
                   />
-                </audio>
-              )}
+                )}
 
-              {item.media_type === "video" && item.file && (
-                <video controls className="mt-2 w-full">
-                  <source
-                    src={`http://localhost:1000${item.file}`}
-                    type="video/mp4"
-                  />
-                </video>
-              )}
+                {item.media_type === "audio" && item.file && (
+                  <audio controls className="mt-2 w-full">
+                    <source
+                      src={`http://localhost:1000${item.file}`}
+                      type="audio/mpeg"
+                    />
+                  </audio>
+                )}
 
-              {item.media_type === "article" && (
-                <a href="#" className="text-blue-500 mt-2 block">
-                  Read more →
-                </a>
-              )}
-            </div>
-          ))}
+                {item.media_type === "video" && item.file && (
+                  <video controls className="mt-2 w-full">
+                    <source
+                      src={`http://localhost:1000${item.file}`}
+                      type="video/mp4"
+                    />
+                  </video>
+                )}
+
+                {item.media_type === "article" && (
+                  <a href="#" className="text-blue-500 mt-2 block">
+                    Read more →
+                  </a>
+                )}
+              </div>
+            ))}
         </div>
       )}
     </div>
