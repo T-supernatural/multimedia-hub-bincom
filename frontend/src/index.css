@@ -1,1 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Salsa:wght@400&display=swap');
 @import "tailwindcss";
+
+.logo {
+    font-family: "Salsa", cursive;
+}

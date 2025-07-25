@@ -77,4 +77,16 @@ Or if you want a static prototype first, I can sketch out the HTML/CSS layout. W
 
 
 
-Can you help me set up media models in Django?
+COLORS :-
+606c38 - LOGO LIGHT, 
+283618 - LOGO DEEP, AND HEADING DEEP, AND CTA
+fefae0 - BACKGROUND COLOR
+dda15e - HEADING LIGHT, AND CTA
+bc6c25 - TEXT HIGHLIGHT, AND CTA HOVER
+
+
+Home
+About
+contact
+Medias
+Account
