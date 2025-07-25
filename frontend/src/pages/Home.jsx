@@ -41,11 +41,11 @@ const Home = () => {
                 <p className="text-sm text-gray-500 mb-1">
                   {item.media_type.toUpperCase()}
                 </p>
-                <p className="text-gray-700 line-clamp-3">
-                  {item.description.toLowerCase()}
-                </p>
+                {/* <p className="text-gray-700 line-clamp-3">
+                  {item.description}
+                </p> */}
 
-                {item.media_type === "photo" && item.file && (
+                {/* {item.media_type === "photo" && item.file && (
                   <img
                     src={
                       item.file.startsWith("http")
@@ -87,7 +87,7 @@ const Home = () => {
                   <a href="#" className="text-blue-500 mt-2 block">
                     Read more →
                   </a>
-                )}
+                )} */}
               </Link>
             ))}
         </div>

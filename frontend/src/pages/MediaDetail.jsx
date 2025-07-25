@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
-function MediaDetail() {
+const MediaDetail = () => {
   const { id } = useParams();
   const [media, setMedia] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -24,16 +24,19 @@ function MediaDetail() {
         ← Back to Home
       </Link>
 
-      <h1 className="text-3xl font-bold mb-2">{media.title}</h1>
+      <h1 className="text-3xl font-bold mb-2">{media.title.toUpperCase()}</h1>
+      <p className="text-sm text-gray-500 mb-1">
+        {media.media_type.toUpperCase()}
+      </p>
       <p className="text-gray-600 mb-4">{media.description}</p>
 
       {media.media_type === "photo" && media.file && (
         <img
           src={
-                      media.file.startsWith("http")
-                        ? media.file
-                        : `http://localhost:1000${media.file}`
-                    }
+            media.file.startsWith("http")
+              ? media.file
+              : `http://localhost:1000${media.file}`
+          }
           alt={media.title}
           className="rounded"
         />
@@ -43,10 +46,10 @@ function MediaDetail() {
         <audio controls className="w-full mt-2">
           <source
             src={
-                      media.file.startsWith("http")
-                        ? media.file
-                        : `http://localhost:1000${media.file}`
-                    }
+              media.file.startsWith("http")
+                ? media.file
+                : `http://localhost:1000${media.file}`
+            }
             type="audio/mpeg"
           />
         </audio>
@@ -54,11 +57,14 @@ function MediaDetail() {
 
       {media.media_type === "video" && media.file && (
         <video controls className="w-full mt-2">
-          <source src={
-                      media.file.startsWith("http")
-                        ? media.file
-                        : `http://localhost:1000${media.file}`
-                    } type="video/mp4" />
+          <source
+            src={
+              media.file.startsWith("http")
+                ? media.file
+                : `http://localhost:1000${media.file}`
+            }
+            type="video/mp4"
+          />
         </video>
       )}
 
@@ -69,6 +75,7 @@ function MediaDetail() {
       )}
     </div>
   );
-}
+};
 
 export default MediaDetail;
+
