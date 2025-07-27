@@ -55,7 +55,7 @@ const Navbar = () => {
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between p-5 border-b">
+        <div className="flex items-center justify-between p-5">
           <span className="text-[#780000] text-2xl font-bold">Menu</span>
           <button onClick={() => setIsOpen(false)} className="text-2xl">
             <i className="fa-solid fa-xmark"></i>
