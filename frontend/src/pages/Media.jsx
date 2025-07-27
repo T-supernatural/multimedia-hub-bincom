@@ -33,7 +33,7 @@ const Media = () => {
   }, [category, search]);
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-6 min-h-screen">
       <div className="flex flex-col md:flex-row gap-4 mb-6 items-center">
         <input
           type="text"

@@ -5,6 +5,7 @@ import AdminRedirect from "./pages/AdminRedirect";
 import Media from "./pages/Media";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/media/:id" element={<MediaDetail />} />
         <Route path="/superpanel" element={<AdminRedirect />} />
       </Routes>
+      <Footer />
     </>
   );
 };

@@ -1,12 +1,14 @@
 import React from 'react'
 import Banner from '../components/Banner'
 import Card from '../components/Card'
+import Features from '../components/Features'
 
 const Home = () => {
   return (
-    <div>
+    <div className='flex flex-col gap-20'>
       <Banner />
       <Card />
+      <Features />
     </div>
   )
 }

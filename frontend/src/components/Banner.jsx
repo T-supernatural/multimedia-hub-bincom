@@ -8,39 +8,38 @@ import "swiper/css/pagination";
 // Example data (replace with props or fetched API data)
 const slides = [
   {
-    title: "Blue Surf",
-    genre: "Drama",
-    rating: 3,
-    year: "2019",
-    pg: "PG-13",
+    title: "Stream the Unexpected",
     description:
-      "Mae Holland seizes the opportunity of a lifetime when she lands a job with the world’s most powerful technology and social media company.",
-    image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80",
+      "A bold invitation to explore unique and surprising content across genres.",
+    image: "/background/one.jpg",
+    cta: "Start Watching",
   },
   {
-    title: "Sky Watch",
-    genre: "Sci-Fi",
-    rating: 4,
-    year: "2023",
-    pg: "PG",
+    title: "Your World in Media",
     description:
-      "A boy finds a secret government drone and uses it to take down a dark agency controlling the skies.",
-    image:
-      "https://images.unsplash.com/photo-1549921296-3c228f60fa9b?auto=format&fit=crop&w=1920&q=80",
+      "Captures the idea of a personalized, immersive media experience.",
+    image: "/background/two.jpg",
+    cta: "Explore Now",
+  },
+  {
+    title: "Watch. Listen. Explore.",
+    description:
+      "Simple, rhythmic, and action-driven — perfect for a dynamic multimedia hub.",
+    image: "/background/three.jpg",
+    cta: "Discover More",
   },
 ];
 
 const Banner = () => {
   return (
-    <div className="relative w-full h-[90vh]">
+    <div className="relative w-full h-screen">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation
         pagination={{ clickable: true }}
-        autoplay={{ delay: 5000 }}
+        autoplay={{ delay: 7000 }}
         loop
-        className="h-full"
+        className="h-full mySwiper custom-swiper"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
@@ -49,27 +48,18 @@ const Banner = () => {
               style={{ backgroundImage: `url(${slide.image})` }}
             >
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent z-10"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent z-10"></div>
 
               {/* Content */}
-              <div className="relative z-20 max-w-xl text-white space-y-4">
-                <h1 className="text-5xl md:text-6xl font-bold">
+              <div className="relative z-20 max-w-2xl text-black space-y-10">
+                <h1 className="text-5xl md:text-7xl font-bold">
                   {slide.title}
                 </h1>
-                <div className="flex items-center space-x-4 text-sm md:text-base text-gray-300">
-                  <span className="uppercase">{slide.genre}</span>
-                  <span>
-                    {"★".repeat(slide.rating)}
-                    {"☆".repeat(5 - slide.rating)}
-                  </span>
-                  <span>{slide.year}</span>
-                  <span className="border px-1.5 py-0.5 rounded border-gray-400">
-                    {slide.pg}
-                  </span>
-                </div>
-                <p className="text-gray-200">{slide.description}</p>
-                <button className="mt-3 px-6 py-2 text-lg font-medium bg-white text-black rounded hover:bg-gray-200 transition">
-                  ▶ Watch Now
+                <p className="text-gray-700 font-light text-3xl">
+                  {slide.description}
+                </p>
+                <button className="mt-3 px-6 py-2 text-lg font-medium bg-[#BF0603] text-white  hover:scale-102 transition">
+                  {slide.cta}
                 </button>
               </div>
             </div>

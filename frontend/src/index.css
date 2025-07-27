@@ -1,6 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Salsa:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 @import "tailwindcss";
 
 .logo {
-    font-family: "Salsa", cursive;
+    font-family: "Dancing Script", cursive;
+}
+
+.custom-swiper .swiper-pagination-bullet {
+    background-color: #fff !important;
+    /* unselected dot color */
+    opacity: 1;
+}
+
+.custom-swiper .swiper-pagination-bullet-active {
+    background-color: #BF0603 !important;
+    /* active dot color (your color) */
+}
+
+.custom-swiper .swiper-button-prev,
+.custom-swiper .swiper-button-next {
+    color: #BF0603 !important;
+    @apply hidden md:block;
 }
