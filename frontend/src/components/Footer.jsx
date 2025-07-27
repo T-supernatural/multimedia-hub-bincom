@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 text-gray-500 text-xl px-6 py-10 mt-20 ">
+    <footer className="bg-gradient-to-r from-white to-gray-50 text-gray-500 text-xl px-6 pt-10 pb-5 mt-20 ">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-sm">
         {/* About Section */}
         <div>
@@ -73,7 +73,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <hr className="my-6 border-gray-300" />
+      <hr className="my-5 md:mx-10 border-gray-200" />
 
       <p className="text-center text-xl">
         &copy; {new Date().getFullYear()}{" "}

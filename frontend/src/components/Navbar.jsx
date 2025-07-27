@@ -7,11 +7,14 @@ const Navbar = () => {
   return (
     <>
       <nav className="fixed w-full top-0 left-0 bg-white text-gray-500 shadow-md z-50">
-        <div className="flex items-center justify-between py-5 px-6 md:pr-20 md:pl-10" >
-          <div className="text-black text-3xl md:text-4xl font-black logo">
+        <div className="flex items-center justify-between py-5 px-6 md:pr-20 md:pl-10">
+          <Link
+            to="/"
+            className="text-black text-3xl md:text-4xl font-black logo"
+            aria-label="Go to home"
+          >
             Media<span className="text-[#BF0603]">Hub.</span>
-          </div>
-
+          </Link>
           {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-12 text-xl md:text-2xl font-light">
             <li className="hover:text-black transition duration-300 hover:-translate-y-0.5 hover:font-semibold">
