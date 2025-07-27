@@ -4,7 +4,7 @@ const Story = () => {
     <section className="bg-white py-20 px-6 lg:px-20">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-6xl font-light text-gray-700 mb-6 logo">
             Our Story
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed">
@@ -22,7 +22,7 @@ const Story = () => {
         {/* Image or media placeholder */}
         <div className="w-full h-72 md:h-96 bg-gray-200 rounded-lg shadow-md overflow-hidden">
           <img
-            src="/about-story.jpg" // swap this with your image path
+            src="/story.png" // swap this with your image path
             alt="Our beginnings"
             className="w-full h-full object-cover"
           />

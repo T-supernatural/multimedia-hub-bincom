@@ -1,35 +1,39 @@
 // components/Bts.jsx
 const behindTheScenes = [
   {
-    title: 'Lights, Camera, Action!',
-    description: 'A quick look at our team prepping the set before a major shoot.',
-    imageUrl: '/bts1.jpg',
+    title: "Lights, Camera, Action!",
+    description:
+      "A quick look at our team prepping the set before a major shoot.",
+    imageUrl: "/podcast-1.jpg",
   },
   {
-    title: 'Editing Magic',
-    description: 'Late nights spent perfecting every frame — post-production in full throttle.',
-    imageUrl: '/bts2.jpg',
+    title: "Editing Magic",
+    description:
+      "Late nights spent perfecting every frame — post-production in full throttle.",
+    imageUrl: "/podcast-1.jpg",
   },
   {
-    title: 'On Location',
-    description: 'We go where the story takes us. This one’s from a shoot in Lagos.',
-    imageUrl: '/bts3.jpg',
+    title: "On Location",
+    description:
+      "We go where the story takes us. This one’s from a shoot in Lagos.",
+    imageUrl: "/podcast-1.jpg",
   },
   {
-    title: 'Creative Chaos',
-    description: 'Mood boards, whiteboards, pizza boxes. The birth of ideas isn’t always pretty.',
-    imageUrl: '/bts4.jpg',
+    title: "Creative Chaos",
+    description:
+      "Mood boards, whiteboards, pizza boxes. The birth of ideas isn’t always pretty.",
+    imageUrl: "/podcast-1.jpg",
   },
 ];
 
 const Bts = () => {
   return (
-    <section className="bg-gray-50 py-20 px-6 lg:px-20">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12 text-center text-gray-900">Behind the Scenes</h2>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    <section className="py-20 px-6 lg:px-20">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl md:text-8xl font-light mb-16 text-center text-gray-700 logo">Behind the Scenes</h2>
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {behindTheScenes.map((item, idx) => (
-            <div key={idx} className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition">
+            <div key={idx} className="bg-white shadow-md rounded overflow-hidden hover:shadow-lg transition">
               <img
                 src={item.imageUrl}
                 alt={item.title}

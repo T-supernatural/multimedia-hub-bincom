@@ -31,7 +31,7 @@ const Testimonial = () => {
   return (
     <section className="bg-white py-20 px-6 lg:px-20">
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-10">What Our Clients Say</h2>
+        <h2 className="text-4xl md:text-8xl font-light text-gray-700 mb-12 logo">What Our Clients Say</h2>
 
         <Swiper
           modules={[Pagination, Autoplay]}
@@ -49,7 +49,7 @@ const Testimonial = () => {
         >
           {testimonials.map((item, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-gray-100 p-10 rounded-xl shadow-md max-w-3xl mx-auto">
+              <div className=" p-10 max-w-3xl mx-auto">
                 <p className="text-lg italic text-gray-700">“{item.feedback}”</p>
                 <div className="mt-6">
                   <h4 className="text-xl font-semibold text-[#780000]">{item.name}</h4>
