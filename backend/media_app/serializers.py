@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Media, Category
+from .models import Media, Category, ContactMessage
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -27,3 +27,8 @@ class MediaSerializer(serializers.ModelSerializer):
             'publish_date',
             'is_published'
         ]
+
+class ContactMessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactMessage
+        fields = '__all__'

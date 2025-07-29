@@ -25,6 +25,7 @@ class Media(models.Model):
     file = models.FileField(upload_to='media_files/', blank=True, null=True)
     thumbnail = models.ImageField(
         upload_to='thumbnails/', blank=True, null=True)
+    article_header = models.TextField(blank=True, null=True)
     article_content = models.TextField(blank=True, null=True)
 
     category = models.ForeignKey(
@@ -42,3 +43,14 @@ class Media(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.subject} from {self.name}"

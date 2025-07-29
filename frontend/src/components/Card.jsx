@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Skeletin from "./Skeletin";
 
 const Card = () => {
   const [mediaItems, setMediaItems] = useState([]);
@@ -41,26 +42,7 @@ const Card = () => {
 
   return (
     <div className="p-12 md:p-24 min-h-screen">
-      {loading ? null : error ? (
-        <div className="flex flex-col items-center justify-center h-96">
-          <svg
-            className="w-16 h-16 text-red-400 mb-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          <p className="text-xl text-red-500 font-semibold text-center">
-            {error}
-          </p>
-        </div>
-      ) : (
+      {loading ? <Skeletin /> : (
         <div>
           <h1 className="text-5xl text-gray-700 font-light mb-14 text-center logo">
             Featured Listings

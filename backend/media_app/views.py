@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import Media, Category
-from .serializers import MediaSerializer, CategorySerializer
+from .models import Media, Category, ContactMessage
+from .serializers import MediaSerializer, CategorySerializer, ContactMessageSerializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
 from rest_framework import viewsets, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from django.views.decorators.csrf import csrf_exempt
@@ -31,7 +34,7 @@ class MediaViewSet(viewsets.ModelViewSet):
     serializer_class = MediaSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ['media_type']
-    search_fields = ['title', 'description']
+    search_fields = ['title', 'media_type']
 
 
 @csrf_exempt
@@ -55,3 +58,12 @@ def verify_email(request):
         except Exception as e:
             return JsonResponse({"exists": False, "error": str(e)}, status=500)
     return JsonResponse({"error": "Invalid request method."}, status=405)
+
+
+@api_view(['POST'])
+def contact_message_view(request):
+    serializer = ContactMessageSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response({'message': 'Message sent successfully!'}, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -1,5 +1,37 @@
 import React from "react";
 
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    subject: form.subject.value,
+    message: form.message.value,
+  };
+
+  try {
+    const response = await fetch("http://localhost:1000/api/contact/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      alert("Message sent successfully!");
+      form.reset();
+    } else {
+      const errorData = await response.json();
+      alert("Error: " + JSON.stringify(errorData));
+    }
+  } catch (err) {
+    alert("Something went wrong!");
+  }
+};
+
+
 const Form = () => {
   return (
     <section className="bg-white py-16 px-4 md:px-10">
@@ -7,7 +39,10 @@ const Form = () => {
         <h2 className="text-3xl md:text-7xl font-light capitalize text-gray-700 mb-10 logo">
           Send us a message...
         </h2>
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <form
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          onSubmit={handleSubmit}
+        >
           <div className="flex flex-col">
             <label htmlFor="name" className="text-sm text-gray-600 mb-1">
               Your Name
