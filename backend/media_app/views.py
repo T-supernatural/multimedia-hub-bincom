@@ -1,3 +1,6 @@
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import never_cache
+from django.views.generic import TemplateView
 from django.shortcuts import render
 from rest_framework import generics
 from .models import Media, Category, ContactMessage
@@ -67,3 +70,10 @@ def contact_message_view(request):
         serializer.save()
         return Response({'message': 'Message sent successfully!'}, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+
+@method_decorator(never_cache, name='dispatch')
+class FrontendAppView(TemplateView):
+    template_name = "index.html"

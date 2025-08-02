@@ -10,5 +10,6 @@ urlpatterns = [
     path('categories/', views.CategoryList.as_view(), name='category-list'),
     path('verify-email/', verify_email, name='verify_email'),
     path('contact/', views.contact_message_view, name='contact-message'),
+    path('', views.FrontendAppView.as_view(), name='home'),
     path('', include(router.urls)),
 ]
