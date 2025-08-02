@@ -1,13 +1,16 @@
 services:
   - type: web
-    name: multimedia-hub-backend
+    name: multimedia-hub
     env: python
-    buildCommand: ""
-    startCommand: gunicorn backend.wsgi
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn backend.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: backend.settings
-      - key: SECRET_KEY
-        generateValue: true
-      - key: DEBUG
-        value: "False"
+      - key: PYTHON_VERSION
+        value: 3.11
+    buildFilter:
+      paths:
+        - backend/**  # trigger builds only when backend changes
+    rootDir: backend  # 🔥 THIS IS THE FIX — tell Render where to start
